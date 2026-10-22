@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head><meta charset="utf 8"><title>ada</title></head>
+  <body style="background:#EEF2F6; color:#353A42; font-family:system-ui; padding:2rem">
+    <h1>ada</h1>
+    <button id="ping">ping ada</button>
+    <pre id="output"></pre>
+
+    <script>
+      document.getElementById("ping").addEventListener("click", async () => {
+        const res = await fetch("/api/ping");
+        const data = await res.json();
+        document.getElementById("output").textContent=data.status;
+      })
+    </script>
+  </body>
+</html>
