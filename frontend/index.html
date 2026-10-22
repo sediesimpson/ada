@@ -4,6 +4,7 @@
   <body style="background:#EEF2F6; color:#353A42; font-family:system-ui; padding:2rem">
     <h1>ada</h1>
     <button id="ping">ping ada</button>
+    <button id="whoami">who am i?</button>
     <pre id="output"></pre>
 
     <script>
@@ -11,6 +12,12 @@
         const res = await fetch("/api/ping");
         const data = await res.json();
         document.getElementById("output").textContent=data.status;
+      })
+
+      document.getElementById("whoami").addEventListener("click", async () => {
+        const res = await fetch("/api/whoami");
+        const data = await res.json();
+        document.getElementById("output").textContent=data.user;
       })
     </script>
   </body>

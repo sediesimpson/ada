@@ -7,5 +7,8 @@ app = FastAPI()
 def ping():
   return {"status": "ada online"}
 
-app.mount("/", StaticFiles(directory="frontend", html=True), name="frontend")
+@app.get("/api/whoami")
+def whoami():
+  return {"user": "guest"}
 
+app.mount("/", StaticFiles(directory="frontend", html=True), name="frontend")
